@@ -67,7 +67,11 @@ PriorityPromise.prototype.$addQueue = function $addQueue(type, params, priority=
   }
 };
 PriorityPromise.prototype.then = function(onFulfilled, onRejected, priority){
-  this.$addQueue('then', [onFulfilled, onRejected], priority);
+  if(typeof onRejected == 'function'){
+    this.$addQueue('then', [onFulfilled, onRejected], priority);
+  }else{
+    this.$addQueue('then', [onFulfilled, undefined], priority || onRejected);
+  }
   return this;
 };
 PriorityPromise.prototype.catch = function(onRejected, priority){
