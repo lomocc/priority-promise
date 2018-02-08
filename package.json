@@ -1,6 +1,6 @@
 {
   "name": "priority-promise",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Promise with Priority",
   "main": "index.js",
   "scripts": {},
